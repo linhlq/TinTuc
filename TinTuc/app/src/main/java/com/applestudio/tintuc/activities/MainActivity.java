@@ -1,25 +1,15 @@
 package com.applestudio.tintuc.activities;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Environment;
-import android.os.Parcelable;
-import android.provider.MediaStore;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.applestudio.tintuc.R;
 import com.applestudio.tintuc.adapters.ListMenuAdapter;
@@ -27,11 +17,10 @@ import com.applestudio.tintuc.adapters.ListNewsAdapter;
 import com.applestudio.tintuc.models.MenuObject;
 import com.applestudio.tintuc.models.NewsObject;
 import com.applestudio.tintuc.utils.Constant;
+import com.applestudio.tintuc.utils.GridSpacingItemDecoration;
 import com.applestudio.tintuc.utils.SimpleDividerItemDecoration;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private DrawerLayout drawer;
@@ -68,13 +57,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         newsAdapter = new ListNewsAdapter(this, listNews, new ListNewsAdapter.PositionClickListener() {
             @Override
             public void itemClicked(int position) {
-                startActivity(NewsDetailActivity.class);
+                startActivity(DetailActivity.class);
             }
         });
         newsAdapter.setHasStableIds(true);
 
-        listNewsView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 0 || position == 1 || position == 2 || position == 3) {
+                    return 1;
+                }
+                return 2;
+            }
+        });
+
+        listNewsView.setLayoutManager(gridLayoutManager);
         listNewsView.addItemDecoration(new SimpleDividerItemDecoration(this));
+        listNewsView.addItemDecoration(new GridSpacingItemDecoration(2, Constant.convertDpIntoPixels(10, this), true));
         listNewsView.setAdapter(newsAdapter);
 
         Constant.increaseHitArea(buttonMenu);
@@ -161,50 +162,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_menu:
-                /*if (drawer.isDrawerOpen(GravityCompat.START)) {
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 } else {
                     drawer.openDrawer(GravityCompat.START);
-                }*/
-                openImageIntent();
+                }
                 break;
         }
-    }
-
-    private void openImageIntent() {
-
-        // Determine Uri of camera image to save.
-        /*final File root = new File(Environment.getExternalStorageDirectory() + File.separator + "MyDir" + File.separator);
-        root.mkdirs();
-        final String fname = Utils.getUniqueImageFilename();
-        final File sdImageMainDirectory = new File(root, fname);
-        outputFileUri = Uri.fromFile(sdImageMainDirectory);*/
-
-        // Camera.
-        final List<Intent> cameraIntents = new ArrayList<Intent>();
-        final Intent captureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        final PackageManager packageManager = getPackageManager();
-        final List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
-        for(ResolveInfo res : listCam) {
-            final String packageName = res.activityInfo.packageName;
-            final Intent intent = new Intent(captureIntent);
-            intent.setComponent(new ComponentName(packageName, res.activityInfo.name));
-            intent.setPackage(packageName);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, "wdgweg");
-            cameraIntents.add(intent);
-        }
-
-        // Filesystem.
-        final Intent galleryIntent = new Intent();
-        galleryIntent.setType("image/*");
-        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-
-        // Chooser of filesystem options.
-        final Intent chooserIntent = Intent.createChooser(galleryIntent, "Select Source");
-
-        // Add the camera options.
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, cameraIntents.toArray(new Parcelable[cameraIntents.size()]));
-
-        startActivityForResult(chooserIntent, 1);
     }
 }
