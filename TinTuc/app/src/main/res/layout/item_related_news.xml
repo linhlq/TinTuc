@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/margin_small">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_trump_putin"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_medium"
+            android:text="Bị chỉ trích, Trump rút lại ý tưởng lập đơn vị an ninh mạng với Nga"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/text_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:layout_alignParentBottom="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@android:color/black"
+            android:text="Tổng thống Mỹ rút ý tưởng lập một đơn vị an ninh mạng với Nga, vài giờ sau khi đề xuất bị những người Cộng Hòa chỉ trích mạnh mẽ"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_above="@+id/text_des"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_small"
+                android:textStyle="italic"
+                android:layout_gravity="center_vertical"
+                android:text="Thời sự"/>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="0.5dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:background="@color/colorDivider"></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_small"
+                android:textStyle="italic"
+                android:layout_gravity="center_vertical"
+                android:text="34 phút trước"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/button_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="THỜI SỰ"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/button_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_option" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/shadow_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/shadow"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:text="Bị chỉ trích, Trump rút lại ý tưởng lập đơn vị an ninh mạng với Nga"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="@dimen/text_very_big"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:background="@drawable/bg_text"
+                    android:gravity="center"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:text="Thời sự"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_small" />
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="0.5dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:layout_toRightOf="@+id/category"
+                    android:background="@color/colorDivider"></View>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/line"
+                    android:text="34 phút trước"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="italic" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:text="Tổng thống Mỹ rút ý tưởng lập một đơn vị an ninh mạng với Nga, vài giờ sau khi đề xuất bị những người Cộng Hòa chỉ trích mạnh mẽ"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_trump_putin"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:text="“Thực tế rằng Tổng thống Putin và tôi đã thảo luận về một đơn vị an ninh mạng không có nghĩa là tôi nghĩ nó có thể xảy ra. Điều đó là không thể”, Reuters dẫn lời ông Trump hôm 9/7 tuyên bố trên Twitter.\n\n
+
+Tổng thống Donald Trump trước đó cho biết ông và Tổng thống Nga Vladimir Putin đã thảo luận về việc thành lập “một đơn vị an ninh mạng bất khả xâm phạm”, để giải quyết các vấn đề như nguy cơ tấn công mạng, can thiệp bầu cử. Ý tưởng nảy ra trong cuộc thảo luận giữa hai lãnh đạo Nga – Mỹ hôm 7/7 tại hội nghị G20 ở thành phố Hamburg, Đức.\n\n
+
+Ý tưởng ngay lập tức bị nhiều người cũng trong đảng Cộng hòa của ông Trump chỉ trích. Họ đặt nghi vấn về lý do Mỹ hợp tác với Nga sau các cáo buộc Nga can thiệp bầu cử tổng thống Mỹ năm 2016.\n\n
+
+“Đó không phải là ý tưởng ngu ngốc nhất tôi từng nghe nhưng cũng rất gần như thế”, Thượng nghị sĩ Lindsey Graham nói. Ashton Carter, cựu bộ trưởng Quốc phòng Mỹ dưới thời Barack Obama, thẳng thừng tuyên bố với CNN: “Điều này giống như một kẻ đã cướp nhà của bạn đề xuất làm việc nhóm về việc trộm cắp”.
+
+\n\nTrọng Giáp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:background="@color/colorDivider"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:text="Tin khác"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorDivider"></View>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_related_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
